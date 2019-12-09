@@ -7,6 +7,9 @@ import ReactDOM from "react-dom";
 // importing stylesheet
 import "./assets/style.css";
 
+// importing the quizService module
+import quizService from "./quizService/";
+
 // creating component called Quizbee, which extends the component class
 class QuizBee extends Component {
   render () { // render method will return a JSX template, which renders on the page
