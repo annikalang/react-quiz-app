@@ -8,7 +8,7 @@ import ReactDOM from "react-dom";
 import "./assets/style.css";
 
 // importing the quizService module
-import quizService from "./quizService/";
+import quizService from "./quizService";
 
 // creating component called Quizbee, which extends the component class
 class QuizBee extends Component {
