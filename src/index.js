@@ -37,6 +37,7 @@ class QuizBee extends Component {
     // 1. question, which will be dynamically boudn to the question text
     // 2. options, which will carry an array of answers for us to render buttons
     // 3. key to the unique questionId that we get in our data, essentiel when rendering lists as it helps React indentify and correlate an instance of a component with the data that it consumes
+    // the answer selected by the user will run a function called computeAnswer, which will get the user's response and access to the acutal correct answer which we're getting from the API
     return (
       <div className="container">
         <div className="title">QuizBee</div>
@@ -47,6 +48,7 @@ class QuizBee extends Component {
            question={question}
            options={answers}
            key={questionId}
+           selected={answer => this.computeAnswer(answer, correct)}
           />
           )
         )}
