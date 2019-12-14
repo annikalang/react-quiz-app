@@ -33,10 +33,12 @@ class QuizBee extends Component {
   // the computeAnswer function will check to see if the user's response matches with the actual correct answer and if so, we would want to increment a score count.
   computeAnswer = (answer, correctAnswer) => {
     if (answer === correctAnswer) {
+      // if the user answers correctly, the core will be incremented by 1
       this.setState({
         score: this.state.score + 1
       });
     }
+    // in all cases, we will increment the responses ba 1, so we can track the number of responses. Using a ternary operator here to ensure we don't over-set the value of responses beyond 5 (because we only have 5 questions).
     this.setState({
       responses: this.state.responses < 5 ? this.state.responses + 1 : 5
     })
