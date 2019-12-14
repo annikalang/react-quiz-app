@@ -17,7 +17,9 @@ import QuestionBox from "./components/QuestionBox";
 class QuizBee extends Component {
 
   state = { // instantiating local state for this component with an array named questionBank (state should always be located at the nearest parent)
-    questionBank: [] // this ist where our five questions would be stored once we pull them in from the API
+    questionBank: [], // this is where our five questions would be stored once we pull them in from the API
+    score: 0, // to keep the score
+    responses: 0// to keep a track of the number of questions answered
   };
 
   getQuestions = () => { // function that invokes the quizService API and proceeds to pupulate the questionBank state variable with the results
@@ -28,9 +30,7 @@ class QuizBee extends Component {
     });
   };
 
-  // the computeAnswer function will check to see if the user's response matches with the actual correct answer and if so, we would want to increment a score count. 2 state variables added:
-  // 1. score: to keep the score
-  // 2. responses: to keep a track of the number of questions answered
+  // the computeAnswer function will check to see if the user's response matches with the actual correct answer and if so, we would want to increment a score count.
   computeAnswer = (answer, correctAnswer) => {
     if (answer === correctAnswer) {
       this.setState({
