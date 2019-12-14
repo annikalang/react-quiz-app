@@ -7,8 +7,14 @@ const QuestionBox = ({ question, options }) => {
   // creating a state variable names answer using the useState function and setting the initial value of the answer variable from the options array that we're getting here as a prop(erty)
   const [answer, setAnswer] = useState(options); // the setAnswer function refers to a function that can be used to update the value of the answer variable
   return (
+    // using the map function on the answer variable to render a series of buttons, using the value of the index from the answer array as the key attribute (not ideal but works for this simple example, ideally unique values which will never mutate should be used).
     <div className="questionBox">
       <div className="question">{question}</div>
+      {answer.map((text, index) => (
+        <button key={index} className="answerBtn">
+          {text}
+        </button>
+      ))}
     </div>
   );
 };
