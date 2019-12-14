@@ -28,6 +28,20 @@ class QuizBee extends Component {
     });
   };
 
+  // the computeAnswer function will check to see if the user's response matches with the actual correct answer and if so, we would want to increment a score count. 2 state variables added:
+  // 1. score: to keep the score
+  // 2. responses: to keep a track of the number of questions answered
+  computeAnswer = (answer, correctAnswer) => {
+    if (answer === correctAnswer) {
+      this.setState({
+        score: this.state.score + 1
+      });
+    }
+    this.setState({
+      responses: this.state.responses < 5 ? this.state.responses + 1 : 5
+    })
+  }
+
   componentDidMount() { // running getQuestions function when this component loads up
     this.getQuestions();
   }
