@@ -10,6 +10,9 @@ import "./assets/style.css";
 // importing the quizService module
 import quizService from "./quizService";
 
+// importing function component
+import QuestionBox from "./components/QuestionBox";
+
 // creating component called Quizbee, which extends the component class
 class QuizBee extends Component {
 
