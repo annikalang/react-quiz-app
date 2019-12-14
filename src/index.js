@@ -10,6 +10,9 @@ import "./assets/style.css";
 // importing the quizService module
 import quizService from "./quizService";
 
+// importing function component
+import QuestionBox from "./components/QuestionBox";
+
 // creating component called Quizbee, which extends the component class
 class QuizBee extends Component {
 
@@ -30,12 +33,22 @@ class QuizBee extends Component {
   }
 
   render () { // render method will return a JSX template, which renders on the page
+    // instead of the h4-tags(<h4>{question}</h4>), we will render instance of the QuestionBox component where we'll pass down properties:
+    // 1. question, which will be dynamically boudn to the question text
+    // 2. options, which will carry an array of answers for us to render buttons
+    // 3. key to the unique questionId that we get in our data, essentiel when rendering lists as it helps React indentify and correlate an instance of a component with the data that it consumes
     return (
       <div className="container">
         <div className="title">QuizBee</div>
         {this.state.questionBank.length > 0 &&
          this.state.questionBank.map(
-         ({question, answers, correct, questionId}) => <h4>(question)</h4>
+         ({question, answers, correct, questionId}) => (
+          <QuestionBox
+           question={question}
+           options={answers}
+           key={questionId}
+          />
+          )
         )}
       </div>
     );
