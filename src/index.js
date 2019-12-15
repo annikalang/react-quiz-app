@@ -13,6 +13,9 @@ import quizService from "./quizService";
 // importing function component
 import QuestionBox from "./components/QuestionBox";
 
+// importing the Result component
+import Result from "./components/Result";
+
 // creating component called Quizbee, which extends the component class
 class QuizBee extends Component {
 
@@ -38,7 +41,7 @@ class QuizBee extends Component {
         score: this.state.score + 1
       });
     }
-    // in all cases, we will increment the responses ba 1, so we can track the number of responses. Using a ternary operator here to ensure we don't over-set the value of responses beyond 5 (because we only have 5 questions).
+    // in all cases, we will increment the responses by 1, so we can track the number of responses. Using a ternary operator here to ensure we don't over-set the value of responses beyond 5 (because we only have 5 questions).
     this.setState({
       responses: this.state.responses < 5 ? this.state.responses + 1 : 5
     })
@@ -54,10 +57,14 @@ class QuizBee extends Component {
     // 2. options, which will carry an array of answers for us to render buttons
     // 3. key to the unique questionId that we get in our data, essentiel when rendering lists as it helps React indentify and correlate an instance of a component with the data that it consumes
     // the answer selected by the user will run a function called computeAnswer, which will get the user's response and access to the acutal correct answer which we're getting from the API
+    // another condition for rendering the QuestionBox component: if the value of the responses touches 5, we want to display the results
+    // Once, we've chosen answers to all of the 5 questions, the QuestionBox component doesn't display anymore.
+    // this gives us the opportunity to conditionally render the result -> renderin an h2-tag with the score.
     return (
       <div className="container">
         <div className="title">QuizBee</div>
         {this.state.questionBank.length > 0 &&
+          this.state.responses < 5 &&
          this.state.questionBank.map(
          ({question, answers, correct, questionId}) => (
           <QuestionBox
@@ -68,6 +75,7 @@ class QuizBee extends Component {
           />
           )
         )}
+        {this.state.responses === 5 ? (<h2>{this.state.score}</h2>) : null}
       </div>
     );
   }
