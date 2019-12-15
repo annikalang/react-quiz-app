@@ -5,6 +5,9 @@ import React from "react";
 
 // creating function component called result, as props, we'lls bring in the score and the function playAgain.
 const Result = ({score, playAgain}) => (
-  <div className
+  // create a div with the className score-board, inside of which, we'll create another div.
+  <div className="score-board">
+    <div
+  </div>
 )
 
