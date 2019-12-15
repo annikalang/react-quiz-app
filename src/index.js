@@ -13,6 +13,9 @@ import quizService from "./quizService";
 // importing function component
 import QuestionBox from "./components/QuestionBox";
 
+// importing the Result component
+import Result from "./components/Result";
+
 // creating component called Quizbee, which extends the component class
 class QuizBee extends Component {
 
