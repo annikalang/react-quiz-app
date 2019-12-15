@@ -10,7 +10,7 @@ const Result = ({score, playAgain}) => (
     // the other div to output the score
     <div className="score">You scored {score} / 5 correct answers!</div>
     // building a button to invoke the contents of the playAgain prop as a function
-    <button className="playBtn">Play again!</button>
+    <button className="playBtn" onClick={playAgain}>Play again!</button>
   </div>
 )
 
