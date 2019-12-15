@@ -7,7 +7,8 @@ import React from "react";
 const Result = ({score, playAgain}) => (
   // create a div with the className score-board, inside of which, we'll create another div.
   <div className="score-board">
-    <div
+    // the other div to output the score
+    <div className="score">You scored {score} / 5 correct answers! </div>
   </div>
 )
 
