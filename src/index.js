@@ -54,10 +54,12 @@ class QuizBee extends Component {
     // 2. options, which will carry an array of answers for us to render buttons
     // 3. key to the unique questionId that we get in our data, essentiel when rendering lists as it helps React indentify and correlate an instance of a component with the data that it consumes
     // the answer selected by the user will run a function called computeAnswer, which will get the user's response and access to the acutal correct answer which we're getting from the API
+    // another condition for rendering the QuestionBox component: if the value of the responses touches 5, we want to render the results
     return (
       <div className="container">
         <div className="title">QuizBee</div>
         {this.state.questionBank.length > 0 &&
+          this.state.responses < 5 &&
          this.state.questionBank.map(
          ({question, answers, correct, questionId}) => (
           <QuestionBox
