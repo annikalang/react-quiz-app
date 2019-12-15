@@ -14,5 +14,8 @@ const Result = ({score, playAgain}) => (
       Play again!
     </button>
   </div>
-)
+);
+
+// exporting result function
+export default Result;
 
