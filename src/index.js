@@ -56,7 +56,7 @@ class QuizBee extends Component {
     // the answer selected by the user will run a function called computeAnswer, which will get the user's response and access to the acutal correct answer which we're getting from the API
     // another condition for rendering the QuestionBox component: if the value of the responses touches 5, we want to display the results
     // Once, we've chosen answers to all of the 5 questions, the QuestionBox component doesn't display anymore.
-
+    // this gives us the opportunity to conditionally render the result -> renderin an h2-tag with the score.
     return (
       <div className="container">
         <div className="title">QuizBee</div>
@@ -72,6 +72,7 @@ class QuizBee extends Component {
           />
           )
         )}
+        {this.state.responses === 5 ? (<h2>{this.state.score}</h2>) : null}
       </div>
     );
   }
