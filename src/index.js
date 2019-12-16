@@ -44,8 +44,8 @@ class QuizBee extends Component {
     // in all cases, we will increment the responses by 1, so we can track the number of responses. Using a ternary operator here to ensure we don't over-set the value of responses beyond 5 (because we only have 5 questions).
     this.setState({
       responses: this.state.responses < 5 ? this.state.responses + 1 : 5
-    })
-  }
+    });
+  };
 
   componentDidMount() { // running getQuestions function when this component loads up
     this.getQuestions();
