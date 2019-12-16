@@ -49,7 +49,7 @@ class QuizBee extends Component {
 
   // playAgain function definition (when user clicks play again button)
   playAgain = () => {
-    this.QuestionBox(); // fetching a new set of questions
+    this.getQuestions(); // fetching a new set of questions
     this.setState({ // resetting score and responses variables to 0
       score: 0,
       responses: 0,
