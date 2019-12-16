@@ -60,6 +60,7 @@ class QuizBee extends Component {
     // another condition for rendering the QuestionBox component: if the value of the responses touches 5, we want to display the results
     // Once, we've chosen answers to all of the 5 questions, the QuestionBox component doesn't display anymore.
     // this gives us the opportunity to conditionally render the result -> renderin an h2-tag with the score.
+    // Instead of the h2-element, we'll render an instance of the Result component, passing in the score and a reference to the playAgain function.
     return (
       <div className="container">
         <div className="title">QuizBee</div>
@@ -75,7 +76,7 @@ class QuizBee extends Component {
           />
           )
         )}
-        {this.state.responses === 5 ? (<h2>{this.state.score}</h2>) : null}
+        {this.state.responses === 5 ? (<Result score={this.state.score} playAgain={this.playAgain} />) : null}
       </div>
     );
   }
